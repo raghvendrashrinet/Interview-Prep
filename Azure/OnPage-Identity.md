@@ -37,3 +37,18 @@
                                                                         │
                                                              [ PIM Role Activation ]
 ```  
+---
+#### Key Interview Discussion Points
+Be ready to explain these high-impact interview scenarios concisely:
+
+#### How do you eliminate hardcoded credentials in CI/CD pipelines?
+
+##### Answer: Configure OIDC Workload Identity Federation between GitHub Actions / Azure DevOps and Azure Entra ID. Pipelines request short-lived tokens on execution without long-lived client secrets.
+
+What is the difference between Authentication (AuthN) and Authorization (AuthZ) in Azure?
+
+Answer: AuthN verifies who the principal is via Entra ID tokens (JWTs). AuthZ determines what actions they can perform via Azure RBAC roles (Actions, DataActions, Scope).
+
+#### How do you secure secrets for short-lived microservices in Kubernetes?
+
+##### Answer: Use Workload Identity combined with the Secrets Store CSI Driver to mount secrets directly from Azure Key Vault in-memory (tmpfs), preventing plain-text secret exposure in Git or cluster ETCD.
